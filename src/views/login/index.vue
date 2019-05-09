@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">物业管理系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -43,10 +43,6 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
 
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
-      </div>
 
     </el-form>
   </div>
@@ -108,9 +104,13 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
+          debugger
           this.loading = true
+          // this.$router.push({ path: '/' })
+          // this.loading = false
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+            debugger
+            this.$router.push({ path: '/' })
             this.loading = false
           }).catch(() => {
             this.loading = false

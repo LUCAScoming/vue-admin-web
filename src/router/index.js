@@ -43,118 +43,110 @@ export const constantRoutes = [
     hidden: true
   },
 
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   children: [{
+  //     path: 'dashboard',
+  //     name: 'Dashboard',
+  //     component: () => import('@/views/dashboard/index'),
+  //     meta: { title: '主页', icon: 'dashboard' }
+  //   }]
+  // },
   {
-    path: '/',
+    path: '',
     component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: 'dashboard',
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/admin/index'),
+        name: 'Dashboard',
+        meta: { title: '主页', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/ownerInfo',
     component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/ownerInfo',
+    alwaysShow: true, // will always show the root menu
     meta: {
-      title: 'Nested',
+      title: '业主信息',
       icon: 'nested'
     },
     children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
-      }
+      { path: 'index', component: () => import('@/views/ownerInfo/index'), name: 'owner-info', meta: { title: '业主信息管理' }},
+      { path: 'houseInfo', component: () => import('@/views/ownerInfo/houseInfo'), name: 'house-info', meta: { title: '房产资料管理' }}
     ]
   },
-
   {
-    path: 'external-link',
+    path: '/card',
     component: Layout,
+    redirect: '/card',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '一卡通服务管理',
+      icon: 'table'
+    },
+    children: [
+      { path: 'index', component: () => import('@/views/card/index'), name: 'card', meta: { title: '一卡通管理' }},
+      { path: 'pay', component: () => import('@/views/card/pay'), name: 'pay', meta: { title: '收费设置' }},
+      { path: 'payQuery', component: () => import('@/views/card/payQuery'), name: 'payQuery', meta: { title: '缴费查询' }}
+    ]
+  },
+  {
+    path: '/faciManage',
+    component: Layout,
+    redirect: '/faciManage',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '设施管理',
+      icon: 'tree '
+    },
+    children: [
+      { path: 'faciMa', component: () => import('@/views/faciManage/faciMa'), name: 'faciMa', meta: { title: '设备监控管理' }},
+      { path: 'billboard', component: () => import('@/views/faciManage/billboardMa'), name: 'billboard', meta: { title: '公告管理' }},
+      { path: 'musicMa', component: () => import('@/views/faciManage/musicMa'), name: 'musicMa', meta: { title: '音乐广播管理' }}
+    ]
+  },
+  {
+    path: '/car',
+    component: Layout,
+    redirect: '/car',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '车位管理',
+      icon: 'form '
+    },
+    children: [
+      { path: 'carRepire', component: () => import('@/views/car/carRepire'), name: 'carRepire', meta: { title: '车位维护' }},
+      { path: 'carManage', component: () => import('@/views/car/carManage'), name: 'carManage', meta: { title: '车位查询' }},
+      { path: 'carInOut', component: () => import('@/views/car/carInOut'), name: 'carInOut', meta: { title: '车辆进出' }}
+    ]
+  },
+  {
+    path: '/service',
+    component: Layout,
+    redirect: '/service',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '客服中心',
+      icon: 'link'
+    },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'complain',
+        component: () => import('@/views/service/complain'),
+        name: 'complain',
+        meta: { title: '投诉建议管理' }
+      },
+      {
+        path: 'serviceMa',
+        component: () => import('@/views/service/serviceMa'),
+        name: 'serviceMa',
+        meta: { title: '服务管理' }
       }
     ]
   },

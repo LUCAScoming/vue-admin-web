@@ -26,13 +26,13 @@
       </el-form-item>
     </el-form>
     <el-table v-loading="loading" :data="tableData">
-      <el-table-column prop="ownerId" label="服务编号" width="120" />
-      <el-table-column prop="ownerName" label="申请业主" width="120" />
-      <el-table-column prop="sex" label="联系方式" width="120" />
-      <el-table-column prop="phone" label="房产位置" width="120" />
-      <el-table-column prop="building" label="申请内容" width="120" />
-      <el-table-column prop="tel" label="状态" width="120" />
-      <el-table-column prop="result" label="审批结果" width="120" />
+      <el-table-column prop="ownerId" label="服务编号"  />
+      <el-table-column prop="ownerName" label="申请业主" />
+      <el-table-column prop="sex" label="联系方式" />
+      <el-table-column prop="phone" label="房产位置" />
+      <el-table-column prop="building" label="申请内容"  />
+      <el-table-column prop="tel" label="状态" />
+      <el-table-column prop="result" label="审批结果" />
       <el-table-column label="操作" width="">
         <template>
           <el-button size="mini" type="primary" @click="form2">查看/修改</el-button>

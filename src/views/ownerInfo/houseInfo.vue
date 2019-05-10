@@ -17,13 +17,13 @@
       </el-form-item>
     </el-form>
     <el-table v-loading="loading" :data="tableData">
-      <el-table-column prop="ownerId" label="业主ID" width="80" />
-      <el-table-column prop="ownerName" label="业主姓名" width="80" />
+      <el-table-column prop="ownerId" label="业主ID"  />
+      <el-table-column prop="ownerName" label="业主姓名"  />
       <!--<el-table-column prop="sex" label="性别" width="60" :formatter="sexFormat" />-->
       <el-table-column prop="phone" label="联系方式" width="120" />
       <el-table-column prop="building" label="楼栋单元" width="80" />
       <el-table-column prop="homeNum" label="房间号" width="80" />
-      <el-table-column prop="buyhouseDate" :formatter="timestampToTime" label="购房日期" width="120" />
+      <el-table-column prop="buyhouseDate" :formatter="timestampToTime" label="购房日期"  />
       <el-table-column prop="houseArea" label="房屋面积" width="120" />
       <el-table-column prop="houseType" label="房型" :formatter="typeFormat" width="120" />
       <el-table-column prop="houseStructure" label="房屋构造" width="120" />

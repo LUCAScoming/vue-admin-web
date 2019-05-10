@@ -22,18 +22,20 @@
       </el-form-item>
     </el-form>
     <el-table v-loading="loading" :data="tableData">
-      <el-table-column prop="ownerId" label="车位编号" width="120" />
-      <el-table-column prop="ownerName" label="状态" width="120" />
-      <el-table-column prop="sex" label="车位类型" width="120" />
-      <el-table-column prop="phone" label="管理类别" width="120" />
-      <el-table-column prop="building" label="预售价格" width="120" />
-      <el-table-column prop="tel" label="预租价格" width="120" />
-      <el-table-column prop="carNum" label="位置" width="120" />
-      <el-table-column prop="cardNum" label="面积" width="120" />
-      <el-table-column prop="position" label="变更" width="120" />
-      <template >
-        <el-button size="mini" type="primary" >修改</el-button>
-      </template>
+      <el-table-column prop="ownerId" label="车位编号" />
+      <el-table-column prop="ownerName" label="状态"  />
+      <el-table-column prop="sex" label="车位类型"  />
+      <el-table-column prop="phone" label="管理类别" />
+      <el-table-column prop="building" label="预售价格"/>
+      <el-table-column prop="tel" label="预租价格"  />
+      <el-table-column prop="carNum" label="位置" />
+      <el-table-column prop="cardNum" label="面积"  />
+      <el-table-column prop="position" label="变更"  >
+        <template >
+          <el-button size="medium" type="primary" >修改信息</el-button>
+        </template>
+      </el-table-column>
+
     </el-table>
     <el-pagination
       :current-page="managerQueryVo.pageObj.currentPage"

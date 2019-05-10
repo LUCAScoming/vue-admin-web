@@ -22,19 +22,23 @@
       </el-form-item>
     </el-form>
     <el-table v-loading="loading" :data="tableData">
-      <el-table-column prop="ownerId" label="停车牌号" width="120" />
-      <el-table-column prop="ownerName" label="车牌号" width="120" />
-      <el-table-column prop="sex" label="车主姓名" width="120" />
-      <el-table-column prop="phone" label="车位编号" width="120" />
-      <el-table-column prop="building" label="入场时间" width="120" />
-      <el-table-column prop="tel" label="出场时间" width="120" />
-      <el-table-column prop="carNum" label="值班人" width="120" />
-      <el-table-column prop="cardNum" label="备注" width="120" />
-      <el-table-column prop="position" label="变更" width="120" />
-      <template>
-        <el-button size="mini" type="primary">修改</el-button>
-        <el-button size="mini" type="danger">删除</el-button>
-      </template>
+      <el-table-column prop="ownerId" label="停车牌号"  />
+      <el-table-column prop="ownerName" label="车牌号" />
+      <el-table-column prop="sex" label="车主姓名" />
+      <el-table-column prop="phone" label="车位编号"  />
+      <el-table-column prop="building" label="入场时间" />
+      <el-table-column prop="tel" label="出场时间"  />
+      <el-table-column prop="carNum" label="值班人" />
+      <el-table-column prop="cardNum" label="备注"  />
+      <el-table-column prop="position" label="变更"  >
+        <template slot-scope="scope">
+          <el-button size="mini" type="primary">修改
+          </el-button>
+          <el-button size="mini" type="danger">删除</el-button>
+
+        </template>
+      </el-table-column>
+
     </el-table>
     <el-pagination
       :current-page="managerQueryVo.pageObj.currentPage"

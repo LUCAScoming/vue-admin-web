@@ -33,7 +33,7 @@
           <el-button size="mini" type="primary" >查看</el-button>
         </template>
       </el-table-column>
-      <el-table-column label="明细" width="300">
+      <el-table-column label="明细">
         <template slot-scope="scope">
           <el-button size="mini" type="success" >水费明细</el-button>
           <el-button size="mini" type="success" >电费明细</el-button>

@@ -21,10 +21,10 @@
       <el-form-item label="业主姓名">
         <el-input v-model="data.ownerName" style="width:200px" />
       </el-form-item>
-      <el-form-item v-show="isEdit === 1" label="性别">
-        {{ data.sex | sexFilter }}
-      </el-form-item>
-      <el-form-item v-show="isEdit === 0" label="性别" >
+      <!--<el-form-item v-show="isEdit === 1" label="性别">-->
+        <!--{{ data.sex | sexFilter }}-->
+      <!--</el-form-item>-->
+      <el-form-item label="性别" >
         <el-select v-model="data.sex" placeholder="请选择">
           <el-option
             v-for="item in sex"
@@ -51,9 +51,6 @@
       </el-form-item>
       <el-form-item label="关系" >
         <el-input v-model="data.emergencyRelationship" style="width:200px" />
-      </el-form-item>
-      <el-form-item label="联系电话" >
-        <el-input v-model="data.phone" style="width:200px" />
       </el-form-item>
       <el-form-item label="家庭成员" >
         <el-input v-model="data.familyId" style="width:200px" />
@@ -136,25 +133,25 @@ export default {
     return {
       isEdit: 1,
       options: [{
-        value: 1,
+        value: 0,
         label: '小学'
       }, {
-        value: 2,
+        value: 1,
         label: '初中'
       }, {
-        value: 3,
+        value: 2,
         label: '高中'
       }, {
-        value: 4,
+        value: 3,
         label: '本科'
       }, {
-        value: 5,
+        value: 4,
         label: '硕士'
       }, {
-        value: 6,
+        value: 5,
         label: '博士'
       }, {
-        value: 7,
+        value: 6,
         label: '博士后'
       }],
       options1: [{
@@ -171,16 +168,16 @@ export default {
         label: '党员'
       }],
       options2: [{
-        value: 1,
+        value: 0,
         label: '身份证'
       }, {
-        value: 2,
+        value: 1,
         label: '军人'
       }, {
-        value: 3,
+        value: 2,
         label: '港澳'
       }, {
-        value: 4,
+        value: 3,
         label: '外籍'
       }],
       sex: [{
@@ -197,7 +194,6 @@ export default {
         ownerName: '',
         sex: '',
         nativePlace: '',
-        emergencyName: '',
         emergencyContact: '',
         emergencyRelationship: '',
         familyId: '',
@@ -205,10 +201,9 @@ export default {
         phone: '',
         degree: '',
         politicalLandscape: '',
-        building: '',
+        building: null,
         homeNum: '',
-        national: '',
-        familyMembersList: {
+        familyMembersList: [{
           id: '',
           identy: '',
           memberId: '',
@@ -221,7 +216,7 @@ export default {
           workName: '',
           workPlace: '',
           workPosition: ''
-        }
+        }]
       }
     }
   },
@@ -253,7 +248,7 @@ export default {
         politicalLandscape: '',
         building: '',
         homeNum: '',
-        familyMembersList: {
+        familyMembersList: [{
           id: '',
           identy: '',
           memberId: '',
@@ -266,7 +261,7 @@ export default {
           workName: '',
           workPlace: '',
           workPosition: ''
-        }
+        }]
       }
     },
     editManager(id) {
@@ -287,7 +282,7 @@ export default {
         politicalLandscape: '',
         building: null,
         homeNum: '',
-        familyMembersList: {
+        familyMembersList: [{
           id: '',
           identy: '',
           memberId: '',
@@ -300,7 +295,7 @@ export default {
           workName: '',
           workPlace: '',
           workPosition: ''
-        }
+        }]
       }
       ownerInfoApi.editInfo(id).then(data => {
         this.data = data

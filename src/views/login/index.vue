@@ -3,7 +3,8 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">物业管理系统</h3>
+        <h3 class="title">欢迎使用小区物业管理系统</h3>
+        <p>(物业管理公司)</p>
       </div>
 
       <el-form-item prop="username">

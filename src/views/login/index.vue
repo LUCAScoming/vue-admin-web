@@ -4,9 +4,10 @@
 
       <div class="title-container">
         <h3 class="title">欢迎使用小区物业管理系统</h3>
-        <p>(物业管理公司)</p>
       </div>
-
+      <div style="margin-bottom: 20px">
+        <el-radio v-model="radio" label="1">管理员登录</el-radio>
+      </div>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -44,7 +45,6 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
 
-
     </el-form>
   </div>
 </template>
@@ -70,6 +70,7 @@ export default {
       }
     }
     return {
+      radio: '1',
       loginForm: {
         username: 'admin',
         password: '111111'

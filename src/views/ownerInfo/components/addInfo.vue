@@ -92,22 +92,22 @@
       </el-form-item>
       <p>以下为非必填项</p>
       <el-form-item label="工作单位" prop="signName">
-        <el-input v-model="data.familyMembersList.workPosition" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].workPosition" style="width:200px" />
       </el-form-item>
       <el-form-item label="工作职务" prop="signName">
-        <el-input v-model="data.familyMembersList.workName" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].workName" style="width:200px" />
       </el-form-item>
       <el-form-item label="工作地址" prop="realName">
-        <el-input v-model="data.familyMembersList.workPlace" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].workPlace" style="width:200px" />
       </el-form-item>
       <el-form-item label="家庭成员姓名" prop="password">
-        <el-input v-model="data.familyMembersList.memberName" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].memberName" style="width:200px" />
       </el-form-item>
       <el-form-item label="关系" prop="mobile">
-        <el-input v-model="data.familyMembersList.relation" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].relation" style="width:200px" />
       </el-form-item>
       <el-form-item label="联系电话" prop="mobile">
-        <el-input v-model="data.familyMembersList.phone" style="width:200px" />
+        <el-input v-model="data.familyMembersList[0].phone" style="width:200px" />
       </el-form-item>
       <el-form-item style="text-align:center">
         <el-button type="primary" @click="updateOwnerInfo">提交</el-button>

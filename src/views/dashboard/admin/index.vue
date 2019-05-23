@@ -2,11 +2,61 @@
   <div class="dashboard-editor-container">
 
     <h1 align="center">欢迎来到物业管理系统</h1>
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3>{{ item }}</h3>
-      </el-carousel-item>
-    </el-carousel>
+    <div style="margin-top: 50px; margin-left: 10px;margin-right: 10px;margin-bottom: 50px">
+      <div>
+        <el-row :gutter="20">
+          <el-col :span="24">
+            <div class="grid-content bg-purple">
+              <el-card class="box-card">
+                <div class="text item">
+                  <a style="margin: 10px">收到一条来自业主闫菲的业主申请</a>
+                  <a style="margin-left: 50px;color: blue;" @click="apply">查看详情</a>
+                </div>
+                <div class="text item">
+                  <a style="margin: 10px">收到一条来自业主贾海凌的投诉建议</a>
+                  <a style="margin-left: 50px;color: blue;" @click="complain">查看详情</a>
+                </div>
+              </el-card>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <div>
+      <el-form :inline="true" :model="managerQueryVo">
+        <el-form-item label="欠费类别" prop="class">
+          <el-select v-model="value" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"/>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-input placeholder="请输入业主姓名/一卡通号码"/>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="medium">查询</el-button>
+        </el-form-item>
+      </el-form>
+      <el-table v-loading="loading" :data="tableData">
+        <el-table-column prop="ownerId" label="姓名"/>
+        <el-table-column prop="ownerName" label="一卡通号码"/>
+        <el-table-column prop="sex" label="联系方式"/>
+        <el-table-column prop="phone" label="欠费类别"/>
+        <el-table-column label="操作" width="">
+          <template>
+            <el-button size="mini" type="primary" @click="pay">查看详情</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+    <!--<el-carousel indicator-position="outside">-->
+      <!--<el-carousel-item v-for="item in 4" :key="item">-->
+        <!--<h3>{{ item }}</h3>-->
+      <!--</el-carousel-item>-->
+    <!--</el-carousel>-->
 
     <!--<github-corner style="position: absolute; top: 0px; border: 0; right: 0;"/>-->
 
@@ -55,7 +105,34 @@ export default {
   name: 'Dashboard',
   data() {
     return {
-      currentRole: 'adminDashboard'
+      currentRole: 'adminDashboard',
+      options: [{
+        value: 1,
+        label: '所有'
+      }, {
+        value: 2,
+        label: '水费'
+      }, {
+        value: 3,
+        label: '电费'
+      }, {
+        value: 4,
+        label: '燃气费'
+      }, {
+        value: 5,
+        label: '物业费'
+      }],
+      tableData: [{
+        ownerId: '廖展亮',
+        ownerName: '2015190323',
+        sex: '1453567788',
+        phone: '物业费'
+      },{
+        ownerId: '闫菲',
+        ownerName: '20151903432',
+        sex: '1453567788',
+        phone: '水费'
+      }]
     }
   },
   computed: {
@@ -66,6 +143,17 @@ export default {
   created() {
     if (!this.roles.includes('admin')) {
       this.currentRole = 'editorDashboard'
+    }
+  },
+  methods: {
+    apply() {
+      this.$router.push({path: '/service/serviceMa'})
+    },
+    complain() {
+      this.$router.push({path: '/service/complain'})
+    },
+    pay() {
+      this.$router.push({path: '/card/pay'})
     }
   }
 }

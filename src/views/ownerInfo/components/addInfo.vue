@@ -1,7 +1,7 @@
 <template>
   <div id="add-info" style="margin-left: 50px">
     <h2 style="text-align: center">业主信息登记表</h2>
-    <el-form ref="addInfo" :model="data" label-width="120px">
+    <el-form :inline="true" ref="addInfo" :model="data" label-width="120px ">
       <el-form-item label="业主ID" prop="roles">
         <el-input v-model="data.ownerId" style="width:200px" />
       </el-form-item>
@@ -90,6 +90,7 @@
       <el-form-item label="房间号码">
         <el-input v-model="data.homeNum" style="width:200px" />
       </el-form-item>
+      <el-divider></el-divider>
       <p>以下为非必填项</p>
       <el-form-item label="工作单位" prop="signName">
         <el-input v-model="data.familyMembersList[0].workPosition" style="width:200px" />
@@ -203,6 +204,8 @@ export default {
         politicalLandscape: '',
         building: null,
         homeNum: '',
+        national:'',
+        emergencyName:'',
         familyMembersList: [{
           id: '',
           identy: '',
@@ -248,6 +251,8 @@ export default {
         politicalLandscape: '',
         building: '',
         homeNum: '',
+        national: '',
+        emergencyName: '',
         familyMembersList: [{
           id: '',
           identy: '',
@@ -282,6 +287,8 @@ export default {
         politicalLandscape: '',
         building: null,
         homeNum: '',
+        national: '',
+        emergencyName: '',
         familyMembersList: [{
           id: '',
           identy: '',

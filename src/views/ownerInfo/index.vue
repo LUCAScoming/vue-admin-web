@@ -106,7 +106,6 @@ export default {
       })
         .catch(error => {
           this.loading = false
-          debugger
           this.$message.error(error.msg)
         })
     },

@@ -72,17 +72,19 @@ const actions = {
     })
   },
   // user logout
-  logout({ commit, state }) {
-    return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
-        commit('SET_TOKEN', '')
-        removeToken()
-        resetRouter()
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
-    })
+  logout() {
+    debugger
+    this.$router.push('../../views/login/index.vue')
+    // return new Promise((resolve, reject) => {
+    //   logout(state.token).then(() => {
+    //     commit('SET_TOKEN', '')
+    //     removeToken()
+    //     resetRouter()
+    //     resolve()
+    //   }).catch(error => {
+    //     reject(error)
+    //   })
+    // })
   },
 
   // remove token

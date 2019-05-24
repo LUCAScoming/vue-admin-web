@@ -22,7 +22,7 @@
         </el-row>
       </div>
     </div>
-    <div>
+    <div style="margin-left: 10px">
       <el-form :inline="true" :model="managerQueryVo">
         <el-form-item label="欠费类别" prop="class">
           <el-select v-model="value" placeholder="请选择">
@@ -34,7 +34,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-input placeholder="请输入业主姓名/一卡通号码"/>
+          <el-input v-model="name" placeholder="请输入业主姓名/一卡通号码"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" size="medium">查询</el-button>
@@ -106,6 +106,8 @@ export default {
   data() {
     return {
       currentRole: 'adminDashboard',
+      value: '',
+      name: '',
       options: [{
         value: 1,
         label: '所有'

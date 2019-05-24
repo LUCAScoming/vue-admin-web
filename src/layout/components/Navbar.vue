@@ -53,8 +53,8 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      debugger
+      this.$router.push('../../views/login/index.vue')
     }
   }
 }
